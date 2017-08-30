@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+{% block content %}
+	
+<div class="row">
+	<div class="col-md-1 col-sm-1 col-xs-1"></div>
+	<div class="col-md-10 col-sm-10 col-xs-10 course-description">
+	<!-- Course Info Start -->
+		<h2>
+			{{ course.name }}
+		</h2>
+		<h4>
+			<em>{{course.provider}} | {{course.review}} Reviews</em>
+		</h4>
+		<br>
+		<h3>
+			Description:
+		</h3>
+		<br>
+		<p>
+			{{course.description}}
+		</p>
+		<a href="{{course.link}}">
+			More Info
+		</a>
+		<br><br><br>
+		<a href="{{ url_for('editCourse', level_name=level.name, course_name=course.name) }}">
+			<button class="btn btn-default" id="new-item" >
+				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+			</button>
+		</a>
+		<a href="{{url_for('deleteCourse', level_name=level.name, course_name=course.name)}}">
+			<button class="btn btn-default">
+				<span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Delete
+			</button>
+		</a>
+	<!-- Course Info End -->
+	</div>
+	<div class="col-md-1 col-sm-1 col-xs-1"></div>
+</div>	
+{% endblock %}

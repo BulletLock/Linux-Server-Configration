@@ -1,0 +1,50 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="row">
+	<!-- Form for Edit Course Start -->
+	<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 padding-top form-style">
+		<h1>
+			Edit Course
+		</h1>
+		<form action="{{ url_for('editCourse', level_name=level.name, course_name=course.name) }}" method = "post">
+			<div class="form-group">
+			
+				<label for="name">Name:</label>
+				<input type ="text" maxlength="50" class="form-control" name="name" value="{{course.name }}">
+				
+				<label for="provider">Provider:</label>
+				<input type ="text" maxlength="50" class="form-control" name="provider" value="{{course.provider }}">
+				
+				<label for="review">Reviews:</label>
+				<input type ="text" maxlength="50" class="form-control" name="review" value="{{course.review }}">
+				
+				<label for="link">Link:</label>
+				<input type ="text" maxlength="50" class="form-control" name="link" value="{{course.link }}">
+
+				<label for="description">Description:</label>
+				<textarea class="form-control" maxlength="250" rows="3" name="description">{{course.description}}</textarea>
+
+				<label for="level">Level:</label>
+				<br>
+				<select name="level">
+				    <option value="Beginner" name="level" id="level1" {% if level.name == 'Beginner'%}selected{%endif%} >
+            	        Beginner
+        		    </option>
+					<option value="Intermediate" name="level" id="level2" {% if level.name =='Intermediate'%}selected{%endif%} >
+					    Intermediate
+					</option>
+					<option value="Advanced" name="level" id="level3" {% if level.name == 'Advanced'%}selected{%endif%} >
+					    Advanced
+					</option>
+				</select>
+				<br><br>
+				
+				<button class="btn btn-default" id="submit" type="submit">Submit</button>
+			</div>
+		</form>
+	</div>
+	<!-- Form for Edit Course End -->
+</div>
+
+{% endblock %}

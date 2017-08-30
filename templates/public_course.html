@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block content %}
+	
+<div class="row">
+	<!-- Course Info Start -->
+	<div class="col-md-1 col-sm-1 col-xs-0"></div>
+	<div class="col-md-10 col-sm-10 col-xs-12 course-description">
+		<h2>
+			{{ course.name }}
+		</h2>
+		<h4>
+			<em>{{course.provider}} | {{course.review}} Reviews</em>
+		</h4>
+		<br>
+		<h3>
+			Description
+		</h3>
+		<br>
+		<p>
+			{{course.description}}
+		</p>
+		<a href="{{course.link}}">
+			More Info
+		</a>
+		<br><br><br>
+	</div>
+	<div class="col-md-1 col-sm-1 col-xs-0"></div>
+	<!-- Course Info End -->
+</div>
+		
+	
+{% endblock %}

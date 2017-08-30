@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="row">
+	<!-- Form for New Course Start -->
+	<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 padding-top form-style">
+		<h1>
+			New Course
+		</h1>
+		<form action="{{ url_for('newCourse') }}" method = "post">
+			<div class="form-group">
+			
+				<label for="name">Name:</label>
+				<input type ="text" maxlength="50" class="form-control" name="name"placeholder="Name of course">
+				
+				<label for="provider">Provider:</label>
+				<input type ="text" maxlength="50" class="form-control" name="provider"placeholder="provider of course">
+				
+				<label for="review">Reviews:</label>
+				<input type ="text" maxlength="50" class="form-control" name="review"placeholder="Number of reviews">
+				
+				<label for="link">Link:</label>
+				<input type ="text" maxlength="50" class="form-control" name="link"placeholder="Link for more info">
+
+				<label for="description">Description:</label>
+				<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of course"></textarea>
+
+				<label for="level">Level:</label>
+				<br>
+				<select name="level">
+					<option value="Beginner" name="level" id="level1">Beginner</option>
+					<option value="Intermediate" name="level" id="level2">Intermediate</option>
+					<option value="Advanced" name="level" id="level3">Advanced</option>
+			    </select>
+				<br><br>
+				
+				<button type="submit" class="btn btn-default" id="submit" type="submit">Create</button>
+			</div>
+		</form>
+	</div>
+	<!-- Form for New Course End -->
+</div>
+
+{% endblock %}

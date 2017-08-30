@@ -1,0 +1,56 @@
+{% extends "main.html" %}
+{% block content %}
+	
+<div class="row">
+	<div class="col-md-1 col-sm-1 col-xs-0"></div>
+	<!-- Levels Start -->
+	<div class="col-md-3 col-sm-3 col-xs-5 level-list">
+		<h1>
+			Levels
+		</h1>
+		{% for level in levels %}
+		<a href = "{{url_for('showLevel', level_name=level.name)}}">
+			<p>
+				{{level.name}}
+			</p>
+		</a>
+		{% endfor %}
+	</div>
+	<!-- Level Ends -->
+	<!-- Particular Level Courses Start -->
+	<div class="col-md-7 col-sm-7 col-xs-7 course-list">
+		<div class = "flash">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}  
+				<ul>
+					{% for message in messages %}
+					<li>
+						<strong> {{ message }} </strong> 
+					</li>
+					{% endfor %}
+				</ul>
+				{% endif %}
+			{% endwith %}
+		</div>
+		<a href="{{ url_for('newCourse') }}">
+			<button class="btn btn-default" id="new-course" style="float: right; margin-top: 20px;">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add New Item
+			</button>
+		</a>
+		<h1>
+			{{ level.name }}
+		</h1>
+		{% for course in courses %}
+		<a href = "{{url_for('showCourse', level_name=level.name, course_name=course.name)}}">
+			<p>
+				{{course.name}}
+			</p>
+		</a>
+		{% endfor %}
+	</div>
+	<!-- Particular Level Courses End -->
+	<div class="col-md-1 col-sm-1 col-xs-0"></div>
+</div>
+		
+	
+{% endblock %}
