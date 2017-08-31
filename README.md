@@ -215,3 +215,8 @@ Source: [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-s
 3. In category go to SSH > Auth
 4. Select private key file
 5. click open and enter password if you are prompted.
+
+# 18 - Access SSH using Terminal
+
+1. Run the following command : ` $ ssh grader@130.211.160.57 -p 2200 `.
+2. you will be asked to enter password enter it and you are connected.
